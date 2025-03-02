@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-
-using System.Drawing;
-
-using System.Drawing.Imaging;
-using System.Drawing.Text;
+using System.Text.Json;
 using System.IO;
 
 /*
@@ -51,6 +47,11 @@ namespace BAAsciiStart
             Console.WriteLine($"\x1b[38;2;{h.R};{h.G};{h.B}maaa");
             var calculator = new CharCoverageCalculator("JetBrains Mono", 12, 1.2f);
             calculator.test();
+            string filePath = "data.json";
+            using FileStream fs = File.OpenRead(filePath);
+            JsonNode jsonNode = JsonNode.Parse(json);
+            string product = jsonNode["Product"].GetValue<string>();
+            double price = jsonNode["Price"].GetValue<double>();
             var a = new SortedList<float, char>() { { 1f, 'a' } };
         }
     }
