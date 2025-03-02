@@ -92,7 +92,7 @@ namespace BAAsciiStart
             }
             for (int i = 0; i < sortedList.Count; i++)
             {
-                Console.WriteLine($"{sortedList.Keys[i]}:'{sortedList[sortedList.Keys[i]]})',");
+                Console.WriteLine($"{sortedList.Keys[i]}|{sortedList[sortedList.Keys[i]]}");
             }
             return sortedList;
         }
