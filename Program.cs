@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.IO;
 
 /*
@@ -48,7 +49,7 @@ namespace BAAsciiStart
             var calculator = new CharCoverageCalculator("JetBrains Mono", 12, 1.2f);
             calculator.test();
             string filePath = "data.json";
-            using FileStream fs = File.OpenRead(filePath);
+            StreamReader sr = new StreamReader(filePath);
             JsonNode jsonNode = JsonNode.Parse(json);
             string product = jsonNode["Product"].GetValue<string>();
             double price = jsonNode["Price"].GetValue<double>();
